@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class PaymentService {
-    private final SimpleExrateProvider exRateProvider;
+    private final ExRateProvider exRateProvider;
 
     public PaymentService() {
-        this.exRateProvider = new SimpleExrateProvider();
+        this.exRateProvider = new WebApiExRateProvider();
     }
 
     public Payment prepare(Long orderId, String currency, BigDecimal foreignCurrencyAmount) throws IOException {
