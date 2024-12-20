@@ -27,6 +27,7 @@ public class PaymentService {
         String response = br.lines().collect(Collectors.joining());
         br.close();
 
+        // 깃 테스트
         ObjectMapper mapper = new ObjectMapper();
         ExRateData data = mapper.readValue(response, ExRateData.class);
         BigDecimal exRate = data.rates().get("KRW");
