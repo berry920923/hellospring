@@ -1,4 +1,4 @@
-package berryspring.hellospring;
+package berryspring.hellospring.exrate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,5 +1,7 @@
 package berryspring.hellospring;
 
+import berryspring.hellospring.payment.Payment;
+import berryspring.hellospring.payment.PaymentService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

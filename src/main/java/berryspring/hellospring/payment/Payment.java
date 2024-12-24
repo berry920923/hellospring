@@ -1,4 +1,4 @@
-package berryspring.hellospring;
+package berryspring.hellospring.payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package berryspring.hellospring;
+package berryspring.hellospring.payment;
 
 import java.io.IOException;
 import java.math.BigDecimal;

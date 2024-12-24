@@ -1,9 +1,11 @@
-package berryspring.hellospring;
+package berryspring.hellospring.exrate;
+
+import berryspring.hellospring.payment.ExRateProvider;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
-public class SimpleExrateProvider implements ExRateProvider{
+public class SimpleExrateProvider implements ExRateProvider {
     @Override
     public BigDecimal getExRate(String currency) throws IOException {
         if(currency.equals("USD")) return BigDecimal.valueOf(1000);
