@@ -1,5 +1,8 @@
 package berryspring.hellospring;
 
+import berryspring.hellospring.api.ApiTemplate;
+import berryspring.hellospring.api.ErApiExtractor;
+import berryspring.hellospring.api.SimpleApiExecutor;
 import berryspring.hellospring.payment.ExRateProvider;
 import berryspring.hellospring.exrate.WebApiExRateProvider;
 import berryspring.hellospring.payment.PaymentService;
@@ -16,8 +19,13 @@ public class PaymentConfig {
     }
 
     @Bean
+    public ApiTemplate apiTemplate() {
+        return new ApiTemplate(new SimpleApiExecutor(), new ErApiExtractor());
+    }
+
+    @Bean
     public ExRateProvider exRateProvider() {
-        return new WebApiExRateProvider();
+        return new WebApiExRateProvider(apiTemplate());
     }
 
     @Bean
