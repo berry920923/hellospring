@@ -3,11 +3,14 @@ package berryspring.hellospring;
 import berryspring.hellospring.api.ApiTemplate;
 import berryspring.hellospring.api.ErApiExtractor;
 import berryspring.hellospring.api.SimpleApiExecutor;
+import berryspring.hellospring.exrate.RestTemplateExRateProvider;
 import berryspring.hellospring.payment.ExRateProvider;
 import berryspring.hellospring.exrate.WebApiExRateProvider;
 import berryspring.hellospring.payment.PaymentService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.Clock;
 
@@ -19,13 +22,13 @@ public class PaymentConfig {
     }
 
     @Bean
-    public ApiTemplate apiTemplate() {
-        return new ApiTemplate(new SimpleApiExecutor(), new ErApiExtractor());
+    public RestTemplate restTemplate() {
+        return new RestTemplate(new JdkClientHttpRequestFactory());
     }
 
     @Bean
     public ExRateProvider exRateProvider() {
-        return new WebApiExRateProvider(apiTemplate());
+        return new RestTemplateExRateProvider(restTemplate());
     }
 
     @Bean
